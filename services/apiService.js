@@ -33,5 +33,5 @@ export async function fetchHeroesData(playerTag) {
         throw new Error(`Error al obtener los héroes del jugador: ${response.statusText}`);
     }
     const data = await response.json();
-    return data.heroes.filter(hero => hero.name !== "Battle Copter" && hero.name !== "Battle Machine");
+    return data
 }

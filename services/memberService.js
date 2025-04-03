@@ -4,11 +4,13 @@ import { minLevels, minTownHallLevel } from '../config/constants.js';
 export async function processMembers() {
     const membersResponse = await fetchMembersFromClan();
     return Promise.all(membersResponse.map(async (member) => {
-        const heroesData = await fetchHeroesData(member.tag);
+        const playerData = await fetchHeroesData(member.tag);
+        const mainHeroes = playerData.heroes.filter(hero => hero.name !== "Battle Copter" && hero.name !== "Battle Machine");
         return {
             jugador: member.name,
             nivelAyuntamiento: member.townHallLevel,
-            heroes: heroesData
+            heroes: mainHeroes,
+            troops:playerData.troops
         };
     }));
 }
