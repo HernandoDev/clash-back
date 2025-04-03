@@ -18,6 +18,9 @@
   },
   "homepage": "https://github.com/HernandoDev/clash-back#readme",
   "dependencies": {
-    "express": "^5.1.0"
-  }
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0",
+    "node-fetch": "^3.3.2"
+  },
+  "type": "module" 
 }
